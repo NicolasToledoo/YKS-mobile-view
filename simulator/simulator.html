@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YKS Mobile View — Simulator</title>
+  <link rel="stylesheet" href="simulator.css">
+</head>
+<body>
+  <div class="sim-root">
+    <!-- Background Effects -->
+    <div class="bg-effects">
+      <div class="bg-grid"></div>
+      <div class="bg-gradient"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="sim-wrapper">
+      <!-- Iframe Container -->
+      <div class="sim-viewport" id="sim-viewport">
+        <iframe id="sim-iframe" name="yks-mobile-simulator" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-downloads allow-storage-access-by-user-activation" allow="geolocation 'self'"></iframe>
+      </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <button class="tb-btn" id="btn-close" title="Fechar simulador">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <div class="tb-device-name" id="tb-device-name"></div>
+      <div class="tb-actions">
+        <button class="tb-btn" id="btn-portrait" title="Portrait">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="5" y="2" width="14" height="20" rx="2"/>
+          </svg>
+        </button>
+        <button class="tb-btn" id="btn-landscape" title="Landscape">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+          </svg>
+        </button>
+        <button class="tb-btn" id="btn-screenshot" title="Screenshot">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../shared/devices.js"></script>
+  <script src="simulator.js"></script>
+</body>
+</html>

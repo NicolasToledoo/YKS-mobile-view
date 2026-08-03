@@ -1,0 +1,80 @@
+{
+  "manifest_version": 3,
+  "name": "YKS Mobile View",
+  "description": "Emule qualquer dispositivo mobile diretamente no Chrome — 100% local e gratuito",
+  "version": "4.0.0",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "contextMenus",
+    "scripting",
+    "downloads",
+    "webNavigation",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "frame_rules",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["shared/frame-spoofer.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "simulator/simulator.html",
+        "simulator/simulator.css",
+        "simulator/simulator.js",
+        "shared/spoofer.js",
+        "shared/devices.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "commands": {
+    "toggle-emulation": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+M"
+      },
+      "description": "Toggle mobile simulation (Pixel 5 default)"
+    },
+    "take-screenshot": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Take screenshot of current mobile view"
+    }
+  }
+}
